@@ -24,7 +24,7 @@ class CommodityApplication(models.Model):
     Commodity = models.ForeignKey("Commodity",to_field='commodity_id',on_delete=models.CASCADE)
     apply_time = models.DateTimeField(auto_now=False, auto_now_add=True)
     application_state = models.CharField(choices=APPLICATION_STATE_CHOICES)
-    auditor = models.ForeignKey("UserService.User",to_field='user_id',on_delete=models.CASCADE)
+    auditor = models.ForeignKey("UserService.User",to_field='user_id',on_delete=models.CASCADE,blank=True)
     audit_time = models.DateTimeField(auto_now=True, auto_now_add=False)
     if_delete = models.BooleanField(default=False)
 
