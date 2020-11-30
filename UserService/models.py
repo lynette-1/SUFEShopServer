@@ -27,4 +27,4 @@ class User(models.Model):
     credit_score = models.IntegerField()
     online_state = models.CharField(choices=ONLINE_STATE_CHOICES)
     identity = models.CharField()
-    consignee_adress = models.CharField()
+    

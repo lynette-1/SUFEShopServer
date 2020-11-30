@@ -1,0 +1,41 @@
+from rest_framework import serializers
+from .models import User
+class UserSerializer(serializers.Serializer):
+    user_id = serializers.CharField(read_only=True,label='用户名')
+    user_name = serializers.CharField()
+    password = serializers.CharField()
+    avatar = serializers.ImageField()
+    real_name = serializers.CharField()
+    sex = serializers.CharField()
+    mobile = serializers.CharField()
+    email = serializers.EmailField()
+    account_state = serializers.CharField()
+    online_state = serializers.CharField()
+    identity = serializers.CharField()
+
+    def create(self,validated_data):
+        User.objects.create(**validated_data)
+
+    def update(self,instance,validated_data):
+        instance.user_name = validated_data.get('user_name',instance.user_name)
+        instance.password = validated_data.get('password',instance.password)
+        instance.avator = validated_data.get('avator',instance.avator)
+        instance.real_name = validated_data.get('real_name',instance.real_name)
+        instance.sex = validated_data.get('sex',instance.sex)
+        instance.mobile = validated_data.get('mobile',instance.mobile)
+        instance.email = validated_data.get('email',instance.email)
+        instance.account_state = validated_data.get('account_state',instance.account_state)
+        instance.online_state = validated_data.get('online_state',instance.online_state)
+        instance.identity = validated_data.get('identity',instance.identity)
+# user_id = models.AutoField(primary_key=True,unique=True)
+#     user_name = models.CharField(max_length=30)
+#     password = models.CharField(max_length=20)
+#     avatar  = models.ImageField()
+#     real_name = models.CharField(max_length=30)
+#     sex = models.CharField(max_length=1,choices=SEX_CHOICES)
+#     mobile = models.CharField(max_length=11)
+#     email = models.EmailField()
+#     account_state = models.CharField(choices=ACCOUNT_STATE_CHOICES)
+#     credit_score = models.IntegerField()
+#     online_state = models.CharField(choices=ONLINE_STATE_CHOICES)
+#     identity = models.CharField()

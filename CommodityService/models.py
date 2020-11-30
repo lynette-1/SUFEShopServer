@@ -34,3 +34,4 @@ class BrowserHisory(models.Model):
     commodity = models.ForeignKey("Commodity",to_field='commodity_id',on_delete=models.CASCADE)
     user = models.ForeignKey("UserService.User",to_field='user_id', on_delete=models.CASCADE)
     browse_time = models.DateTimeField(auto_now=False, auto_now_add=True)
+    if_delete = models.BooleanField(default=False)
