@@ -15,4 +15,4 @@ class Favourites_detail(models.Model):
         verbose_name_plural = verbose_name
         
     def __str__(self):
-        return str(self.commodity.commodity_name)
+        return self.commodity.commodity_name
