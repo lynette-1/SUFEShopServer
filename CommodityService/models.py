@@ -1,6 +1,5 @@
 from django.db import models
 
-# Create your models here.
 #商品
 class Commodity(models.Model):
     commodity_id = models.AutoField(primary_key=True)
@@ -11,6 +10,8 @@ class Commodity(models.Model):
     detail = models.TextField()
     on_shelf_time = models.DateTimeField(auto_now=False, auto_now_add=True)
     if_delete = models.BooleanField(default=False)
+    
+    objects = CommodityManager()
 
 #申请记录
 class CommodityApplication(models.Model):
@@ -35,3 +36,7 @@ class BrowserHisory(models.Model):
     user = models.ForeignKey("UserService.User",to_field='user_id', on_delete=models.CASCADE)
     browse_time = models.DateTimeField(auto_now=False, auto_now_add=True)
     if_delete = models.BooleanField(default=False)
+
+# 商品管理器
+class CommodityManager(models.Manager):
+    pass
