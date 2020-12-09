@@ -17,7 +17,8 @@ class UserSerializer(serializers.Serializer):
         ('USER','用户'),
         ('ADMINISTRATOR','管理员'),
     )    
-    user_name = serializers.CharField(max_length=30,label='用户昵称')
+    user_name = serializers.CharField(max_length=30,label='用户名')
+    nickname = serializers.CharField(max_length=30,label='用户昵称')
     password = serializers.CharField(max_length=20,label='密码')
     avatar = serializers.ImageField(label='头像')
     real_name = serializers.CharField(max_length=30,label='真实姓名')
@@ -45,7 +46,7 @@ class UserSerializer(serializers.Serializer):
         return User.objects.create(**validated_data)
 
     def update(self,instance,validated_data):
-        instance.user_name = validated_data.get('user_name',instance.user_name)
+        instance.nick_name = validated_data.get('nick_name',instance.nick_name)
         instance.password = validated_data.get('password',instance.password)
         instance.avator = validated_data.get('avator',instance.avator)
         instance.real_name = validated_data.get('real_name',instance.real_name)

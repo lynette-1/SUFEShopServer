@@ -10,8 +10,8 @@ class Message(models.Model):
         ("unread", "未读"),
     )
 
-    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="源用户")
-    receive_user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="目标用户")
+    user = models.ForeignKey(User, on_delete=models.CASCADE,related_name='sender', verbose_name="源用户")
+    receive_user = models.ForeignKey(User, on_delete=models.CASCADE,related_name='reciever',verbose_name="目标用户")
     message_id = models.AutoField(primary_key=True)
     message_content = models.TextField(default="", max_length=200, verbose_name="消息内容")
     message_state = models.CharField(choices=MESSAGE_STATUS, max_length=20, verbose_name="消息状态")

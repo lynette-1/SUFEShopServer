@@ -13,8 +13,8 @@ class Order(models.Model):
     )
 
     commodity = models.ForeignKey(Commodity, on_delete=models.CASCADE, verbose_name="商品")
-    seller = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="卖家")
-    buyer = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="买家")
+    seller = models.ForeignKey(User, on_delete=models.CASCADE,related_name='seller', verbose_name="卖家")
+    buyer = models.ForeignKey(User, on_delete=models.CASCADE,related_name='buyer', verbose_name="买家")
     order_id = models.AutoField(primary_key=True)
     amount = models.FloatField(default=0, verbose_name="订单金额")
     order_state = models.CharField(choices=ORDER_STATUS, max_length=30, verbose_name="订单状态")

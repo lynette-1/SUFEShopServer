@@ -9,7 +9,7 @@ class RefundApplication(models.Model):
         ('REJECTED','拒绝退款'),
     )
     refund_id = models.AutoField(primary_key=True)
-    refund_state = models.CharField(choices=REFUND_STATE_CHOICES,default='TO_BE_REVIEWED')
+    refund_state = models.CharField(choices=REFUND_STATE_CHOICES,default='TO_BE_REVIEWED',max_length=20)
     refund_apply_time = models.DateTimeField(auto_now=False, auto_now_add=True)
     refund_reason = models.TextField()
     refund_time = models.DateTimeField(auto_now=False, auto_now_add=False,blank=True)
