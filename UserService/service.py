@@ -1,21 +1,21 @@
-from .manager import UserManager
+from .models import User
 
 class UserService():
-    def insertUserInfo(self,validated_data):
-        usermanager=UserManager()
-        usermanager.create(validated_data=validated_data)
+    @staticmethod
+    def insertUserInfo(validated_data):
+        User.objects.create(validated_data=validated_data)
 
-    def getUserDetail(self,pk):
-        usermanager=UserManager()
-        return usermanager.find_one(pk=pk)
-    
-    def getUserList(self,query_criteria=None):
-        usermanager=UserManager()
+    @staticmethod
+    def getUserDetail(pk):
+        return User.objects.get(pk=pk)
+
+    @staticmethod
+    def getUserList(query_criteria=None):
         if query_criteria ==None:
-            return usermanager.all()
-        else: 
-            return usermanager.find(query_criteria)
-            
-    def updateUserDetail(self,pk,validated_data):
-        usermanager=UserManager()
-        usermanager.update(pk=pk,validated_data=validated_data)
+            return User.objects.all()
+        else:
+            return User.objects.filter(**query_criteria)
+
+    @staticmethod        
+    def updateUserDetail(pk,validated_data):
+        return User.objects.update(pk=pk,validated_data=validated_data)
