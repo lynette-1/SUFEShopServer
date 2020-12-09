@@ -82,7 +82,7 @@ class BrowserHisorySerializer(serializers.Serializer):
 # if_delete = models.BooleanField(default=False)
 
 
-# 这部分奸商
+
 class CommodityDetailSerializer(serializers.Serializer):
     commodity_id = serializers.IntegerField(read_only=True,label='商品编号')
     commodity_name = serializers.CharField(label='商品名称')
@@ -91,6 +91,7 @@ class CommodityDetailSerializer(serializers.Serializer):
     price = serializers.DecimalField(label='价格')
     detail = serializers.CharField(label='详细描述')
     on_shelf_time = serializers.DateTimeField(label='上架时间')
+    ca = serializers.PrimaryKeyRelatedField(queryset=,many=True, read_only=True)
 
     def create(self,validated_data):
         return Commodity.objects.create(**validated_data)
