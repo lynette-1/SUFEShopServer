@@ -1,5 +1,4 @@
 from django.db import models
-from .manager import UserManager
 # Create your models here.
 #用户
 class User(models.Model):
