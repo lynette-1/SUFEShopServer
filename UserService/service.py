@@ -7,7 +7,7 @@ class UserService():
 
     def getUserDetail(self,pk):
         usermanager=UserManager()
-        usermanager.find_one(pk=pk)
+        return usermanager.find_one(pk=pk)
     
     def getUserList(self,query_criteria=None):
         usermanager=UserManager()
@@ -16,6 +16,6 @@ class UserService():
         else: 
             return usermanager.find(query_criteria)
             
-    def updateUserDetail(self,pk):
+    def updateUserDetail(self,pk,validated_data):
         usermanager=UserManager()
-        return usermanager.find_one(pk=pk)
+        usermanager.update(pk=pk,validated_data=validated_data)
