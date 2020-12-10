@@ -1,6 +1,7 @@
 from .serializer import UserSerializer
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from django.http import JsonResponse
 
 from .service import UserService
 # Create your views here.
@@ -41,5 +42,4 @@ class Login(APIView):
         if not user:
             return Response({'msg':'用户名或者密码错误!'})
         else:
-            token = user.user_id
-            return Response({'msg':'登录成功!','token':token})
+            return Response({'msg':'登录成功!'})
