@@ -2,7 +2,6 @@ from .serializer import UserSerializer
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from django.http import JsonResponse
-
 from .service import UserService
 # Create your views here.
 # class UserViewSet (ModelViewSet):
