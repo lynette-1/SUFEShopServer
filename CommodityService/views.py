@@ -22,14 +22,20 @@ class CommodityDetail(APIView):
         CommodityService.updateMyCommodityDetail(commodity_id,serializer.data)
         return Response(serializer.data)
     def delete(self, request, commodity_id):
-        return CommodityService.deleteCommodity(commodity_id)
+        return CommodityService.updateMyCommodityDetail(commodity_id,{'if_delete':'True'})
 
-class CommodityList(APIView):
+class MyCommodityList(APIView):
     def get(self, request,user):
         query_set = CommodityService.listMyCommodity(user)
         seriliazer = CommoditySerializer(query_set)
         return Response(seriliazer.data)
     # listcommodities()
+
+class CommodityList(APIView):
+    def get(self, request):
+        query_set = CommodityService.listCommodities()
+        seriliazer = CommoditySerializer(query_set)
+        return Response(seriliazer.data)
 
 class AuditCommodityList(APIView):
     def get(self, request):
