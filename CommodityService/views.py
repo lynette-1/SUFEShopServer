@@ -7,7 +7,6 @@ from .service import CommodityService
 
 # CommodityItem?
 class CommodityDetail(APIView):
-
     def get(self, request, commodity_id):
         instance = CommodityService.getCommodityDetail(commodity_id=commodity_id)
         serializer = CommoditySerializer(instance)
@@ -46,6 +45,7 @@ class AuditCommodityList(APIView):
         serializer = CommodityApplicationSerializer(request.data)
         CommodityService.processUnauditedCommodity(application_id,serializer.data)
         return Response(serializer.data)
+
 class BrowseHistoryList(APIView):
     def get(self, request,user):
         query_set = CommodityService.listBrowseHistory(user)

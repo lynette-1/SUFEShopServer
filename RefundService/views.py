@@ -5,7 +5,7 @@ from django.http import JsonResponse
 from .service import RefundApplicationService
 # Create your views here.
 
-def RefundDetail(APIView):
+class RefundDetail(APIView):
     def get(self,request,pk):
         refundapplication = RefundApplicationService.getRefundDetail(pk=pk)
         serializer = RefundApplicationSerializer(refundapplication)
