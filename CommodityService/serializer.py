@@ -5,7 +5,7 @@ class CommoditySerializer(serializers.Serializer):
     commodity_name = serializers.CharField(label='商品名称')
     commodity_type = serializers.CharField(label='商品类别')
     commodity_picture =serializers.ImageField(label='图片')
-    price = serializers.DecimalField(label='价格')
+    price = serializers.DecimalField(label='价格',max_digits=5,decimal_places=2)
     detail = serializers.CharField(label='详细描述')
     on_shelf_time = serializers.DateTimeField(label='上架时间')
 # commodity_id = models.AutoField(primary_key=True)

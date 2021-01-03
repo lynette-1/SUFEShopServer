@@ -3,6 +3,6 @@ from django.urls import include, path
 from FavouritesService.views import FavouritesDetail
 
 urlpatterns = [
-    path('favouritesdetail/',FavouritesDetail),
+    path('favouritesdetail/',FavouritesDetail.as_view()),
     
 ]

@@ -36,9 +36,9 @@ class CommodityService():
     @staticmethod
     def updateMyCommodityDetail(commodity_id,validated_data):
         return Commodity.objects.update(commodity_id,validated_data)
-    @staticmethod
-    def deleteCommodity(commodity_id):
-        return Commodity.objects.update(commodity_id,{'if_delete':'True'})
+    # @staticmethod
+    # def deleteCommodity(commodity_id):
+    #     return Commodity.objects.update(commodity_id,{'if_delete':'True'})
     @staticmethod
     def listCommodities():
         return Commodity.objects.all()

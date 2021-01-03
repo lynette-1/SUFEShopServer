@@ -3,7 +3,7 @@ from django.urls import include, path
 from CommunicationService.views import MessageDetail, MessageList
 
 urlpatterns = [
-    path('messagedetail/',MessageDetail),
-    path('messagelist/',MessageList),
+    path('messagedetail/',MessageDetail.as_view()),
+    path('messagelist/',MessageList.as_view()),
     
 ]
