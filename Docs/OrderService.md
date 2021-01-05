@@ -36,6 +36,7 @@
 2.订单信息查询
 后端=>前端（没有特殊说明即为默认值）
 {
+    status_of_order: '',
     Image: '',
     name_of_commidity: '',
     class_of_commidity: '',
@@ -51,7 +52,9 @@
     buyer: ''
 }
 
-说明：Image表示商品的图像;
+说明：
+      status_of_order表示订单状态，0和1表示退单和未退单
+      Image表示商品的图像;
       name_of_commidity表示商品名称；
       class_of_commidity表示商品类别；
       price_of_commidity表示商品的标价；
@@ -75,6 +78,8 @@
 
 后端=>前端（没有特殊说明即为默认值）
 {
+    status_of_order表示订单状态，0和1表示退单和未退单
+    status_of_order: '',
     Image: '',
     name_of_commidity: '',
     class_of_commidity: '',
